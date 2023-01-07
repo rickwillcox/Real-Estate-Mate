@@ -1,6 +1,6 @@
-![logo](public/logo/logo-128.png)
-
 # Real Estate Mate
+
+![logo](src/assets/logo-128.png)
 
 Your best mate whilst looking for houses to buy on realestate.com.au
 
