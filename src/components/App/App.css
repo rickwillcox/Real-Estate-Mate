@@ -1,0 +1,80 @@
+.rcet-container {
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 3px 3px #d0d0d0;
+  padding: 10px;
+}
+
+.rcet-main-cointainer {
+  padding: 15px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.rcet-title {
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: blueviolet;
+}
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(148, 102, 190);
+}
+
+.rcet-button {
+  background: #5e5df0;
+  border-radius: 999px;
+  box-shadow: #5e5df0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin: 5px;
+}
+
+.rcet-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  background-color: transparent;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
