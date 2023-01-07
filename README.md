@@ -4,7 +4,7 @@
 
 Your best mate whilst looking for houses to buy on realestate.com.au
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![Chrome Users](https://img.shields.io/chrome-web-store/users/jnojnlmongehjaahajakkolengpclmbd)
 ![Chrome Rating](https://img.shields.io/chrome-web-store/stars/jnojnlmongehjaahajakkolengpclmbd)
 ![Chrome Version](https://img.shields.io/chrome-web-store/v/jnojnlmongehjaahajakkolengpclmbd)
