@@ -43,7 +43,7 @@ export function App() {
         <a
           className="rem-bank-est-inner"
           target="blank"
-          href="${commBankLink}"
+          href={`${commBankLink}`}
         ></a>
       </h6>
       <div className="rem-internet">Internet:</div>
