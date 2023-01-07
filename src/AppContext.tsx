@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useUserStore } from "./stores";
+import { CommunicationEvent, sendEventToBackground } from "./utils";
 
 interface AppContextInterface {
-  exampleFetch: () => void;
+  getCommBankData: () => void;
+  getNBNData: () => void;
 }
 
 export const AppContext = React.createContext({} as AppContextInterface);
@@ -15,20 +17,24 @@ function AppProvider(props: Props) {
   const { children } = props;
   const userStore = useUserStore();
 
-  function exampleFetch() {
-    chrome.runtime.sendMessage({
-      functionName: "exampleFetch",
-      data: {},
-    });
+  function getCommBankData() {
+    sendEventToBackground(CommunicationEvent.getCommBankData);
+  }
+
+  function getNBNData() {
+    sendEventToBackground(CommunicationEvent.getNBNData);
   }
 
   useEffect(() => {
     chrome.runtime.onMessage.addListener(function (msg) {
-      switch (msg.functionName) {
-        case "exampleFetch": {
-          console.log("Foreground received exampleFetch");
+      switch (msg.eventName) {
+        case CommunicationEvent.getCommBankData: {
+          console.log("Foreground received getCommBankData");
           console.log(msg.data);
-          userStore.setUser(msg.data);
+        }
+        case CommunicationEvent.getNBNData: {
+          console.log("Foreground received getNBNData");
+          console.log(msg.data);
         }
         default:
           break;
@@ -38,7 +44,7 @@ function AppProvider(props: Props) {
   }, []);
 
   return (
-    <AppContext.Provider value={{ exampleFetch }}>
+    <AppContext.Provider value={{ getCommBankData, getNBNData }}>
       {children}
     </AppContext.Provider>
   );

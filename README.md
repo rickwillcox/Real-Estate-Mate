@@ -9,7 +9,8 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 ![Chrome Rating](https://img.shields.io/chrome-web-store/stars/jnojnlmongehjaahajakkolengpclmbd)
 ![Chrome Version](https://img.shields.io/chrome-web-store/v/jnojnlmongehjaahajakkolengpclmbd)
 ![Github Stars](https://img.shields.io/github/stars/rickwillcox/real-estate-mate)
-![Google Chrome](https://img.shields.io/static/v1?style=flat&message=Real+Estate+Mate&color=4285F4&logo=Google+Chrome&logoColor=FFFFFF&label=Install)
+
+<!-- ![Google Chrome](https://img.shields.io/static/v1?style=flat&message=Real+Estate+Mate&color=4285F4&logo=Google+Chrome&logoColor=FFFFFF&label=Install) -->
 
 ## Features:
 

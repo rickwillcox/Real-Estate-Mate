@@ -1,6 +1,6 @@
 {
-  "name": "react-content-script",
-  "private": true,
+  "name": "real-estate-mate",
+  "private": false,
   "version": "1.0.0",
   "type": "module",
   "scripts": {

@@ -4,13 +4,18 @@
   "version": "1.0.0",
   "action": {
     "default_title": "Popup",
-    "default_popup": "index.html",
-    "default_icon": "logo192.png"
+    "default_popup": "index.html"
   },
-  "icons": {},
+  "icons": {
+    "128": "src/assets/logo-128.png"
+  },
+  "host_permissions": [
+    "https://www.domain.com.au/*",
+    "https://www.commbank.com.au/digital/home-buying/property/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://this-page-intentionally-left-blank.org/*"],
+      "matches": ["https://www.realestate.com.au/property*"],
       "js": ["src/Entry.tsx"],
       "media": []
     }
@@ -18,5 +23,11 @@
   "background": {
     "service_worker": "src/backgroundScripts/background.ts",
     "type": "module"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "resources": ["src/assets/logo-128.png"]
+    }
+  ]
 }

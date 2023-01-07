@@ -8,9 +8,11 @@ To insert the app into the dom you should first find the class of the element on
 and set that class to insertionElement below
 */
 
-const insertionElementId = "this-page-intentionally-left-blank.org";
+const insertionPointClassName = "property-info__middle-content";
 
-const body = document.getElementById(insertionElementId);
+const body = document.getElementsByClassName(
+  insertionPointClassName
+)[0] as HTMLElement;
 
 /*
 You can now append the app to the body of the webpage you are modifying

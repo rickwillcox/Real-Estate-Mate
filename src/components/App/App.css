@@ -1,75 +1,90 @@
-.rcet-container {
-  background: #f2f2f2;
-  overflow: hidden;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 0 3px 3px #d0d0d0;
-  padding: 10px;
-}
-
-.rcet-main-cointainer {
-  padding: 15px;
-  background: #f2f2f2;
-  overflow: hidden;
-  border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 0 20px 8px #d0d0d0;
-  padding: 20px;
-  max-width: 500px;
-}
-
-.rcet-title {
-  font-size: 30px;
+.rem-title {
+  font-size: 22px;
   text-align: center;
   font-weight: bold;
-  color: blueviolet;
 }
 
-h2 {
-  text-align: center;
+.rem-price-range,
+.rem-bank-est,
+.rem-internet,
+.rem-listing-updates {
+  font-size: 18px;
   font-weight: bold;
-  color: rgb(148, 102, 190);
-}
-
-.rcet-button {
-  background: #5e5df0;
-  border-radius: 999px;
-  box-shadow: #5e5df0 0 10px 20px -10px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
-    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
-    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
+  visibility: visible;
   opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-  margin: 5px;
+  transition: opacity 1s ease-in-out;
+  height: auto;
 }
 
-.rcet-logo {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+.rem-logo {
+  animation: growShrink 1.2s linear infinite;
   display: block;
   margin: auto;
-  background-color: transparent;
 }
 
-.spin {
-  animation: spin 2s linear infinite;
+.rem-price-range-inner,
+.rem-bank-est-inner,
+.rem-internet-not-available,
+.rem-internet-list-speed,
+.rem-internet-list-connection,
+.rem-internet-list-co-existance,
+.rem-internet-list-co-existance-face {
+  font-size: 18px;
+  font-weight: 400;
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }
 
+.rem-internet-list {
+  list-style-type: disc;
+  padding-left: 40px;
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.rem-bank-est-inner,
+.rem-internet-not-available {
+  color: blue;
+}
+
+.rem-internet-not-available {
+  visibility: hidden;
+}
+
+.rem-internet-list-connection {
+  color: blue;
+}
+.rem-container {
+  border-style: solid;
+  border-color: black;
+  padding: 15px;
+  border-radius: 10px; /* adds rounded corners to the element */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* adds a subtle drop shadow */
+  transform: translateY(-4px); /* elevates the element */
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  transition: all 0.2s ease-in-out;
+  font-family: "Pangea", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.rem-loading {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rem-dot {
+  background-color: #726e75;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  /* add animation */
+  animation: rem-fade 1s ease-in-out infinite;
+}
+
+/* Logo animation */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -77,4 +92,38 @@ h2 {
   to {
     transform: rotate(360deg);
   }
+}
+@keyframes growShrink {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes rem-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+}
+
+.rem-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.rem-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.rem-dot:nth-child(3) {
+  animation-delay: 0.6s;
 }
