@@ -6,16 +6,11 @@ import { BankEstimate } from "../BankEstimate";
 import { NBNInfo } from "../NBNInfo";
 import { Logo } from "../Logo";
 import { HiddenPriceRange } from "../HiddenPriceRange";
-import { useLoadedStore } from "@src/stores";
 
 export function App() {
-  const { allContainersLoaded } = useLoadedStore();
-
   return (
     <div className="rem-container">
-      <h3 className="rem-title">
-        {`Real Estate Mate! ${allContainersLoaded ? "Loaded" : "Loading..."}`}
-      </h3>
+      <h3 className="rem-title">Real Estate Mate</h3>
       <Logo />
       <HiddenPriceRange />
       <BankEstimate />
