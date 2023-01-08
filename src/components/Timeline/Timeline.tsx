@@ -10,7 +10,7 @@ export function Timeline(props: TimelineProps) {
   const displayTimeline = showTimeline ? "show-timeline" : "hide-timeline";
 
   return (
-    <div className={`rem-timeline-container ${displayTimeline}`}>
+    <div className="rem-timeline-container">
       {Object.keys(listingUpdates).map((key) => {
         return (
           <TimelineEventsGroup

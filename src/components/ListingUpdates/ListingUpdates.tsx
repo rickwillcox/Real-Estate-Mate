@@ -1,8 +1,9 @@
-import { useListingUpdates } from "@src/hooks";
+import { useFadeElement, useListingUpdates, useToggle } from "@src/hooks";
 import "./listingUpdates.scss";
 import { LoadingDots } from "../LoadingDots";
 import { Timeline } from "../Timeline";
 import { useReducer } from "react";
+import AnimateHeight from "react-animate-height";
 
 export function ListingUpdates() {
   const {
@@ -10,10 +11,7 @@ export function ListingUpdates() {
     loading,
   } = useListingUpdates();
 
-  const [showTimeline, toggleShowTimeline] = useReducer(
-    (showTimeline) => !showTimeline,
-    true
-  );
+  const [showTimeline, toggleShowTimeline] = useToggle({ initialValue: false });
 
   let keysInListingUpdates = 0;
   if (listingUpdates) {
@@ -25,31 +23,54 @@ export function ListingUpdates() {
     ? "Hide"
     : `Show (${keysInListingUpdates})`;
 
+  const fadeInShowHidebutton = useFadeElement({
+    type: "in",
+    fadeWhen: !loading && !!keysInListingUpdates,
+  });
+
+  const fadeInNAText = useFadeElement({
+    type: "in",
+    fadeWhen: !loading && !keysInListingUpdates,
+  });
+
+  const NATextClassName = "rem-listing-updates-na-text";
+  if (!loading && !!keysInListingUpdates) {
+    const foundClasses = document.getElementsByClassName(NATextClassName);
+    if (foundClasses && foundClasses[0]) {
+      foundClasses[0].remove();
+    }
+  }
+
   return (
     <div className="rem-sub-container">
       <h6 className="rem-sub-title">
-        Listing Timeline: {loading && <LoadingDots />}
-        {!loading && !keysInListingUpdates && (
-          <span className="rem-sub-title-value-text">N/A</span>
-        )}
-        {!loading && keysInListingUpdates ? (
-          <button
-            className="rem-sub-title-value-text rem-link"
-            onClick={toggleShowTimeline}
-          >
-            {buttonText}
-          </button>
-        ) : (
-          <div />
-        )}
+        Listing Timeline:{" "}
+        <LoadingDots nameClass="rem-loading-timeline" removeWhen={!loading} />
+        <span
+          className={`rem-sub-title-value-text ${NATextClassName} ${fadeInNAText}`}
+        >
+          N/A
+        </span>
+        <button
+          className={`rem-sub-title-value-text rem-link ${fadeInShowHidebutton}`}
+          onClick={toggleShowTimeline}
+        >
+          {buttonText}
+        </button>
       </h6>
       {!loading && keysInListingUpdates && listingUpdates ? (
-        <div className="rem-listing-updates-timeline">
-          <Timeline
-            listingUpdates={listingUpdates}
-            showTimeline={showTimeline}
-          />
-        </div>
+        <AnimateHeight
+          id="rem-timeline-animate-height"
+          duration={500}
+          height={showTimeline ? "auto" : 0}
+        >
+          <div className="rem-listing-updates-timeline">
+            <Timeline
+              listingUpdates={listingUpdates}
+              showTimeline={showTimeline}
+            />
+          </div>
+        </AnimateHeight>
       ) : (
         <div />
       )}

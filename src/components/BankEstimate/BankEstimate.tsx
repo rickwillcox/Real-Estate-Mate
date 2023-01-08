@@ -1,7 +1,7 @@
 /// <reference types="chrome" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import { useCommBankData } from "@src/hooks";
+import { useCommBankData, useFadeElement } from "@src/hooks";
 import "@components/App/App.css";
 import "./bankEstimate.css";
 import { LoadingDots } from "../LoadingDots";
@@ -12,6 +12,11 @@ export function BankEstimate() {
     loading,
   } = useCommBankData();
 
+  const fadeInDisplayTextClass = useFadeElement({
+    type: "in",
+    fadeWhen: !loading,
+  });
+
   const displayText = commBankPriceEval
     ? `$${commBankPriceEval}`
     : "Not Available";
@@ -19,18 +24,18 @@ export function BankEstimate() {
   return (
     <div className="rem-sub-container">
       <h6 className="rem-sub-title">
-        Bank Est:{" "}
-        {loading ? (
-          <LoadingDots />
-        ) : (
-          <a
-            className="rem-sub-title-value-text rem-link"
-            target="blank"
-            href={commBankLink}
-          >
-            {displayText}
-          </a>
-        )}
+        CommBank Est:{" "}
+        <LoadingDots
+          nameClass="rem-loading-bank-estimate"
+          removeWhen={!loading}
+        />
+        <a
+          className={`rem-sub-title-value-text rem-link ${fadeInDisplayTextClass}`}
+          target="blank"
+          href={commBankLink}
+        >
+          {displayText}
+        </a>
       </h6>
     </div>
   );

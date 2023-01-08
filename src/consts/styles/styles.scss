@@ -33,6 +33,25 @@
 
 .rem-link{
   color : colors.$blue;
+  text-decoration: underline;
+}
+
+.rem-fade-in-element {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  transition: opacity 3s;
+}
+
+.rem-fade-in-element.visible {
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+}
+
+.rem-fade-out-element {
+  opacity: 0;
+  transition: opacity 2.5s;
 }
 
 
