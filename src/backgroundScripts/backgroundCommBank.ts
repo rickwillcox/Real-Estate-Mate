@@ -1,7 +1,7 @@
-import { CommBankData } from "@src/interfaces";
+import { CommBankResponse } from "@src/interfaces";
 import { getPageSource } from ".";
 
-export async function commBankHelper(address: string): Promise<CommBankData> {
+export async function commBankHelper(address: string): Promise<CommBankResponse> {
   let domainLink = null;
   let domainPropertyId = null;
   let commBankPriceEval = null;

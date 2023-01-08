@@ -1,0 +1,71 @@
+
+@use "../../consts/styles/colors.scss" as colors;
+
+.rem-timeline-container{
+  padding: 3px;
+  overflow: hidden;
+}
+
+.rem-timeline-container.show-timeline{
+  height: auto;
+}
+
+.rem-timeline-container.hide-timeline{
+  height: 0;
+}
+
+//Event 
+.rem-timeline-event-container {
+  padding: 3px;
+}
+
+.rem-timeline-event-title {
+  font-size: 18px;
+}
+
+.rem-timeline-event-description {
+  color: colors.$dark-grey;
+  font-size: 18px;
+}
+
+//Event Group
+.rem-timeline-events-groups-container{
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rem-timeline-events-group-container{
+  padding: 3px;
+  border: 3px solid colors.$grey;
+  flex-grow: 1;
+  border-radius: 5px;
+  background-color: colors.$light-grey;
+}
+
+.rem-timeline-events-group-date-container{
+  padding: 3px;
+  min-width: 110px;
+}
+
+.rem-timeline-events-group-date-text{
+  color: colors.$dark-grey;
+  font-size: 18px;
+}
+
+.rem-timeline-events-group-line{
+  border-left: 5px solid colors.$dark-grey;
+  width: 15px;
+  position: relative;
+}
+
+.rem-timeline-events-group-dot{
+  border: 3px solid colors.$dark-grey;
+  background-color: colors.$light-grey;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position : absolute;
+  top: 24px;
+  left: -12px;
+}

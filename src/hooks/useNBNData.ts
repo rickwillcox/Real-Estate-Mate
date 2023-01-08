@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 export const coExistanceLink =
   "https://help.australiabroadband.com.au/support/solutions/articles/44000688641-what-is-co-existence-and-why-does-it-affect-my-internet-speed-";
 
-export function useGetNBNData() {
+export function useNBNData() {
   const [NBNData, setNBNData] = useState<NBNResponse | null>(null);
   const { setContainerToLoaded, NBNLoaded } = useLoadedStore();
   useEffect(() => {

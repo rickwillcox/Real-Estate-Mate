@@ -1,11 +1,11 @@
-import { useGetPriceRangeFromDom } from "@src/hooks";
+import { useHiddenPriceRange } from "@src/hooks";
 import "./hiddenPriceRange.css";
 
 export function HiddenPriceRange() {
   const {
     data: { priceRange },
     loading,
-  } = useGetPriceRangeFromDom();
+  } = useHiddenPriceRange();
   return (
     <div className="rem-sub-container">
       <h6 className="rem-sub-title">

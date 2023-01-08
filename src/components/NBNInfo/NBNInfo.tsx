@@ -1,4 +1,4 @@
-import { coExistanceLink, useGetNBNData } from "@src/hooks";
+import { coExistanceLink, useNBNData } from "@src/hooks";
 import "./NBNInfo.scss";
 import "../../consts/styles/styles.scss";
 import { LoadingDots } from "../LoadingDots";
@@ -13,7 +13,7 @@ export function NBNInfo() {
       speedText,
     },
     loading,
-  } = useGetNBNData();
+  } = useNBNData();
 
   const coExistanceText = networkCoexistence ? "Yes" : "No";
   const coExistanceSmileyText = networkCoexistence ? ":(" : ":)";

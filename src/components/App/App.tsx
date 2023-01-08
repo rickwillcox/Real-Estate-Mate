@@ -2,10 +2,11 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import "../../consts/styles/styles.scss";
-import { BankEstimate } from "../BankEstimate";
-import { NBNInfo } from "../NBNInfo";
-import { Logo } from "../Logo";
-import { HiddenPriceRange } from "../HiddenPriceRange";
+import { BankEstimate } from "@components/BankEstimate";
+import { NBNInfo } from "@components/NBNInfo";
+import { Logo } from "@components/Logo";
+import { HiddenPriceRange } from "@components/HiddenPriceRange";
+import { ListingUpdates } from "@components/ListingUpdates";
 
 export function App() {
   return (
@@ -15,7 +16,7 @@ export function App() {
       <HiddenPriceRange />
       <BankEstimate />
       <NBNInfo />
-      {/* <div className="rem-listing-updates">Listing Timeline:</div> */}
+      <ListingUpdates />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import {
   ContentToBackgroundEventMap,
   sendEventToContent,
 } from "@src/utils";
-import { commBankHelper, nbnHelper } from ".";
+import { commBankHelper, getListingUpdatesHelper, nbnHelper } from ".";
 
 export {};
 
@@ -41,6 +41,12 @@ async function processContentScriptFunctions<
       const args =
         func?.args as ContentToBackgroundEventMap[CommunicationEvent.getNBNData];
       msg.data = await nbnHelper(args.address);
+      break;
+    }
+    case CommunicationEvent.getListingUpdates: {
+      const args =
+        func?.args as ContentToBackgroundEventMap[CommunicationEvent.getListingUpdates];
+      msg.data = await getListingUpdatesHelper(args.address);
       break;
     }
     default:

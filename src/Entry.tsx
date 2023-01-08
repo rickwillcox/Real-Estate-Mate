@@ -17,7 +17,7 @@ const body = document.getElementsByClassName(
 You can now append the app to the body of the webpage you are modifying
 You can preform additional checks here if you like this is just a base example.
 */
-const baseElementClassName = "my-extension-container";
+const baseElementClassName = "rem-main-container";
 
 if (body) {
   body.innerHTML += `<div class="${baseElementClassName}"></div>`;

@@ -1,6 +1,6 @@
 import { Nullable } from "./Nullable";
 
-export interface CommBankData {
+export interface CommBankResponse {
   commBankPriceEval: Nullable<string>;
   domainPropertyId?: Nullable<string>;
 }

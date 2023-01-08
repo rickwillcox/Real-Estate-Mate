@@ -1,14 +1,22 @@
-import { CommBankData, NBNResponse, Nullable } from "@src/interfaces";
+import {
+  CommBankResponse,
+  ListingUpdate,
+  ListingUpdatesResponse,
+  NBNResponse,
+  Nullable,
+} from "@src/interfaces";
 
 export const enum CommunicationEvent {
   getCommBankData = "getCommBankData",
   getNBNData = "getNBNData",
+  getListingUpdates = "getListingUpdates",
 }
 
 // content to background
 export interface ContentToBackgroundEventMap {
   [CommunicationEvent.getCommBankData]: EventGetCommBankDataValues;
   [CommunicationEvent.getNBNData]: EventGetNBNDataValues;
+  [CommunicationEvent.getListingUpdates]: EventGetListingUpdatesValues;
 }
 
 interface EventGetCommBankDataValues {
@@ -19,13 +27,18 @@ interface EventGetNBNDataValues {
   address: string;
 }
 
+interface EventGetListingUpdatesValues {
+  address: string;
+}
+
 export type ContentToBackgroundEventMapValues =
   ContentToBackgroundEventMap[keyof ContentToBackgroundEventMap];
 
 //background to content
 export interface BackgroundToContentEventMap {
-  [CommunicationEvent.getCommBankData]: CommBankData;
-  [CommunicationEvent.getNBNData]: Nullable<NBNResponse>; // maybe this breaks it
+  [CommunicationEvent.getCommBankData]: CommBankResponse;
+  [CommunicationEvent.getNBNData]: Nullable<NBNResponse>;
+  [CommunicationEvent.getListingUpdates]: ListingUpdatesResponse;
 }
 
 export type BackgroundToContentEventMapValues =

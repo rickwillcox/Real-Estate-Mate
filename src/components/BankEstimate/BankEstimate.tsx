@@ -1,7 +1,7 @@
 /// <reference types="chrome" />
 /// <reference types="vite-plugin-svgr/client" />
 
-import { useGetCommBankData } from "@src/hooks";
+import { useCommBankData } from "@src/hooks";
 import "@components/App/App.css";
 import "./bankEstimate.css";
 import { LoadingDots } from "../LoadingDots";
@@ -10,7 +10,7 @@ export function BankEstimate() {
   const {
     data: { commBankPriceEval, commBankLink },
     loading,
-  } = useGetCommBankData();
+  } = useCommBankData();
 
   const displayText = commBankPriceEval
     ? `$${commBankPriceEval}`

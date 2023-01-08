@@ -1,7 +1,7 @@
 import { useLoadedStore } from "@src/stores";
 import { useEffect, useState } from "react";
 
-export function useGetPriceRangeFromDom() {
+export function useHiddenPriceRange() {
   const [priceRange, setPriceRange] = useState<string>("");
   const { setContainerToLoaded, hiddenPriceRangeLoaded } = useLoadedStore();
 

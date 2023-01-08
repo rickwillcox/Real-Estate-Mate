@@ -1,4 +1,4 @@
-import { CommBankData } from "@src/interfaces";
+import { CommBankResponse } from "@src/interfaces";
 import { useLoadedStore } from "@src/stores";
 import {
   CommunicationEvent,
@@ -7,8 +7,8 @@ import {
 } from "@src/utils";
 import { useEffect, useState } from "react";
 
-export function useGetCommBankData() {
-  const [commBankData, setCommBankData] = useState<CommBankData>({
+export function useCommBankData() {
+  const [commBankData, setCommBankData] = useState<CommBankResponse>({
     commBankPriceEval: null,
     domainPropertyId: null,
   });
@@ -23,7 +23,7 @@ export function useGetCommBankData() {
   useEffect(() => {
     chrome.runtime.onMessage.addListener(function (msg) {
       if (msg.eventName !== CommunicationEvent.getCommBankData) return;
-      const data = msg.data as CommBankData;
+      const data = msg.data as CommBankResponse;
       setCommBankData({
         commBankPriceEval: data.commBankPriceEval,
         domainPropertyId: data.domainPropertyId,
