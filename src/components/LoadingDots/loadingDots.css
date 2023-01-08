@@ -1,0 +1,25 @@
+.rem-loading-dots {
+  display: inline-flex;
+  align-items: center;
+}
+
+.rem-loading-dot {
+  background-color: #726e75;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  animation: rem-fade 1s ease-in-out infinite;
+}
+
+.rem-loading-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.rem-loading-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.rem-loading-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}

@@ -1,4 +1,5 @@
 import { NBNResponse, Nullable } from "@src/interfaces";
+import { useLoadedStore } from "@src/stores";
 import {
   CommunicationEvent,
   getAddress,
@@ -6,9 +7,12 @@ import {
 } from "@src/utils";
 import { useEffect, useState } from "react";
 
+export const coExistanceLink =
+  "https://help.australiabroadband.com.au/support/solutions/articles/44000688641-what-is-co-existence-and-why-does-it-affect-my-internet-speed-";
+
 export function useGetNBNData() {
   const [NBNData, setNBNData] = useState<NBNResponse | null>(null);
-
+  const { setContainerToLoaded, NBNLoaded } = useLoadedStore();
   useEffect(() => {
     console.log("sendEventToBackground(CommunicationEvent.getNBNData);");
     sendEventToBackground(CommunicationEvent.getNBNData, {
@@ -18,15 +22,10 @@ export function useGetNBNData() {
 
   useEffect(() => {
     chrome.runtime.onMessage.addListener(function (msg) {
-      console.log(
-        "chrome.runtime.onMessage.addListener(function (msg) { NBN BEFORE"
-      );
-
       if (msg.eventName !== CommunicationEvent.getNBNData) return;
-      console.log(
-        "chrome.runtime.onMessage.addListener(function (msg) { NBN AFTER"
-      );
       setNBNData(msg.data);
+      setContainerToLoaded("NBNLoaded");
+      chrome.runtime.onMessage.removeListener(function () {});
     });
   }, []);
 
@@ -44,11 +43,14 @@ export function useGetNBNData() {
   );
 
   return {
-    primaryAccessTechnology,
-    primaryAccessTechnologyLink,
-    speedText,
-    speedCategory,
-    networkCoexistence,
+    data: {
+      primaryAccessTechnology,
+      primaryAccessTechnologyLink,
+      speedText,
+      speedCategory,
+      networkCoexistence,
+    },
+    loading: !NBNLoaded,
   };
 }
 
@@ -90,16 +92,20 @@ function processSpeedData(
   return { speedText, speedCategory };
 }
 
-function processPrimaryAccessTechnologyData(
-  primaryAccessTechnologyRaw?: NBNResponse["primaryAccessTechnology"]
-): {
+interface ProcessPrimaryAccessTechnologyReturn {
   primaryAccessTechnology: string;
   primaryAccessTechnologyLink: string;
-} {
-  let primaryAccessTechnology = "NBN data unreliable";
-  let primaryAccessTechnologyLink =
+}
+
+function processPrimaryAccessTechnologyData(
+  primaryAccessTechnologyRaw?: NBNResponse["primaryAccessTechnology"]
+): ProcessPrimaryAccessTechnologyReturn {
+  const defaultConnectionLink =
     "https://www.nbnco.com.au/learn/network-technology";
-  console.log("!!!!!!!!!!", primaryAccessTechnologyRaw);
+
+  let primaryAccessTechnology = "NBN data unreliable";
+  let primaryAccessTechnologyLink = defaultConnectionLink;
+
   if (!primaryAccessTechnologyRaw)
     return { primaryAccessTechnology, primaryAccessTechnologyLink };
   switch (primaryAccessTechnologyRaw?.toLowerCase()) {

@@ -1,7 +1,9 @@
+import { useLoadedStore } from "@src/stores";
 import { useEffect, useState } from "react";
 
 export function useGetPriceRangeFromDom() {
   const [priceRange, setPriceRange] = useState<string>("");
+  const { setContainerToLoaded, hiddenPriceRangeLoaded } = useLoadedStore();
 
   useEffect(() => {
     const regex =
@@ -10,11 +12,13 @@ export function useGetPriceRangeFromDom() {
     if (matches === null) {
       setPriceRange(`No price range available`);
       return;
+    } else {
+      setPriceRange(matches[1].replace("_", " - "));
     }
-    setPriceRange(matches[1].replace("_", " - "));
-  });
+    setContainerToLoaded("hiddenPriceRangeLoaded");
+  }, []);
 
-  return priceRange;
+  return { data: { priceRange }, loading: !hiddenPriceRangeLoaded };
 }
 
 // todo: update back end here

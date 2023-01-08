@@ -17,13 +17,16 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-    "@src/*": ["src/*"],
-    "@components/*": ["src/components/*"],
-    "@stores/*": ["src/stores/*"],
-    "@assets/*": ["src/assets/*"],
-    "@utils/*": ["src/utils/*"],
-    "@backgroundScripts/*": ["src/backgroundScripts/*"],
-  }
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@stores/*": ["src/stores/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@backgroundScripts/*": ["src/backgroundScripts/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@consts/*": ["src/consts/*"],
+    }
   },
   "include": ["src/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }],

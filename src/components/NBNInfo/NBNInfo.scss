@@ -1,0 +1,38 @@
+@use "../../consts/styles/colors" as colors;
+
+.rem-nbn-info-list-speed.fast {
+  color: colors.$green;
+}
+
+.rem-nbn-info-list-speed.medium {
+  color: colors.$orange;
+}
+
+.rem-nbn-info-list-speed.slow {
+  color: colors.$red;
+}
+
+.rem-nbn-info-list {
+  list-style-type: disc;
+  padding-left: 40px;
+}
+
+.rem-link.red {
+  color: colors.$red;
+}
+
+.rem-link.green {
+  color: colors.$green;
+}
+
+// .rem-nbn-info-co-existance-text {
+//   color: colors.$blue;
+// }
+
+// .rem-nbn-info-co-existance-text.green {
+//   color: colors.$green;
+// }
+
+// .rem-nbn-info-co-existance-text.red {
+//   color: colors.$red;
+// }

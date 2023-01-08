@@ -1,4 +1,4 @@
-import { CommBankData, Nullable } from "@src/interfaces";
+import { CommBankData } from "@src/interfaces";
 import { getPageSource } from ".";
 
 export async function commBankHelper(address: string): Promise<CommBankData> {
@@ -17,7 +17,7 @@ export async function commBankHelper(address: string): Promise<CommBankData> {
       throw new Error("Failed to get domain property ID");
     }
   } catch (error) {
-    return { commBankPriceEval: "Not Available", domainPropertyId };
+    return { commBankPriceEval: null, domainPropertyId };
   }
 
   commBankPriceEval = await getCommBankPriceEval(domainPropertyId);

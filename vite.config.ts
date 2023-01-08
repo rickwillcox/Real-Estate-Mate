@@ -29,6 +29,9 @@ export default defineConfig({
       "@utils": "/src/utils",
       "@assets": "/src/assets",
       "@backgroundScripts": "/src/backgroundScripts",
+      "@hooks": "/src/hooks",
+      "@interfaces": "/src/interfaces",
+      "@consts": "/src/consts",
     },
   },
 });

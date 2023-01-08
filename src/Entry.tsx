@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./components/App";
-import AppProvider from "./AppContext";
 
 /*
 To insert the app into the dom you should first find the class of the element on the webpage you are modifying 
@@ -29,8 +28,6 @@ const root = createRoot(container!);
 
 root.render(
   <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
+    <App />
   </React.StrictMode>
 );

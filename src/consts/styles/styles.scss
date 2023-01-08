@@ -1,0 +1,81 @@
+@use "./colors.scss" as colors;
+
+.rem-container{
+  border-style: solid;
+    border-color: black;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+    background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+    transition: all 0.2s ease-in-out;
+    font-family: "Pangea", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.rem-title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.rem-sub-container {
+  display: block;
+}
+
+.rem-sub-title{
+  font-size: 18px;
+  font-weight: bold;
+}
+.rem-sub-title-value-text{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.rem-link{
+  color : colors.$blue;
+}
+
+
+/* Logo animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes growShrink {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes rem-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+}
+
+.rem-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+.rem-dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.rem-dot:nth-child(3) {
+  animation-delay: 0.6s;
+}

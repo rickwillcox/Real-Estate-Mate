@@ -1,0 +1,14 @@
+@keyframes rem-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  66% {
+    opacity: 1;
+  }
+}

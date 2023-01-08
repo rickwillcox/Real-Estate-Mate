@@ -1,4 +1,5 @@
 import { CommBankData } from "@src/interfaces";
+import { useLoadedStore } from "@src/stores";
 import {
   CommunicationEvent,
   getAddress,
@@ -11,6 +12,7 @@ export function useGetCommBankData() {
     commBankPriceEval: null,
     domainPropertyId: null,
   });
+  const { setContainerToLoaded, bankEstimateLoaded } = useLoadedStore();
 
   useEffect(() => {
     sendEventToBackground(CommunicationEvent.getCommBankData, {
@@ -26,11 +28,19 @@ export function useGetCommBankData() {
         commBankPriceEval: data.commBankPriceEval,
         domainPropertyId: data.domainPropertyId,
       });
+      setContainerToLoaded("bankEstimateLoaded");
     });
   }, []);
 
+  const commBankLink = commBankData.domainPropertyId
+    ? `https://www.commbank.com.au/digital/home-buying/property/${commBankData.domainPropertyId}?byAddress=true`
+    : "https://www.commbank.com.au/digital/home-buying/search";
+
   return {
-    commBankPriceEval: commBankData.commBankPriceEval,
-    domainPropertyId: commBankData.domainPropertyId,
+    data: {
+      commBankPriceEval: commBankData.commBankPriceEval,
+      commBankLink,
+    },
+    loading: !bankEstimateLoaded,
   };
 }
