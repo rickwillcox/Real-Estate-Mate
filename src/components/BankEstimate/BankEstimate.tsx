@@ -24,7 +24,7 @@ export function BankEstimate() {
   return (
     <div className="rem-sub-container">
       <h6 className="rem-sub-title">
-        CommBank Est:{" "}
+        Comm Bank Est:{" "}
         <LoadingDots
           nameClass="rem-loading-bank-estimate"
           removeWhen={!loading}
