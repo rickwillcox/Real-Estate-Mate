@@ -1,24 +1,62 @@
 import { ListingUpdate, ListingUpdatesResponse } from "@src/interfaces";
 import "./timeline.scss";
 import { daysAgo } from "@src/utils";
+import { useMainContainerSize } from "@src/hooks";
+import { useEffect, useRef } from "react";
 interface TimelineProps {
   listingUpdates: ListingUpdatesResponse;
-  showTimeline: boolean;
 }
 
 export function Timeline(props: TimelineProps) {
-  const { listingUpdates, showTimeline } = props;
-  const displayTimeline = showTimeline ? "show-timeline" : "hide-timeline";
+  const { listingUpdates } = props;
+
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const hideTopRef = useRef<HTMLDivElement>(null);
+
+  const { mainContainerSize } = useMainContainerSize();
+  console.log(mainContainerSize);
+
+  useEffect(() => {
+    if (timelineRef.current) {
+      timelineRef.current.style.width = `${mainContainerSize.width}px`;
+    }
+    if (hideTopRef.current) {
+      hideTopRef.current.style.width = `${mainContainerSize.width}px`;
+    }
+  }, [mainContainerSize]);
 
   return (
-    <div className="rem-timeline-container">
-      {Object.keys(listingUpdates).map((key) => {
-        return (
-          <TimelineEventsGroup
-            listingUpdates={listingUpdates[key as keyof ListingUpdatesResponse]}
-          />
-        );
-      })}
+    <div ref={timelineRef} className="rem-timeline-container">
+      <div ref={hideTopRef} className="rem-timeline-hide-top"></div>
+
+      <div>
+        {Object.keys(listingUpdates).map((key) => {
+          return (
+            <TimelineEventsGroup
+              listingUpdates={
+                listingUpdates[key as keyof ListingUpdatesResponse]
+              }
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+
+  return (
+    <div>
+      <div ref={timelineRef} className="rem-timeline-container">
+        {Object.keys(listingUpdates).map((key) => {
+          return (
+            <TimelineEventsGroup
+              listingUpdates={
+                listingUpdates[key as keyof ListingUpdatesResponse]
+              }
+            />
+          );
+        })}
+      </div>
+      <div className="rem-temp"></div>
     </div>
   );
 }

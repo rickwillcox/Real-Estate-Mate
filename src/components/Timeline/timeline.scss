@@ -1,9 +1,31 @@
 
 @use "../../consts/styles/colors.scss" as colors;
 
+.rem-temp{
+  height: 700px;
+}
 .rem-timeline-container{
-  padding: 3px;
-  overflow: hidden;
+  position: absolute;
+  border-top-style: none;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  transition: all 0.2s ease-in-out;
+  font-family: "Pangea", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: colors.$white;
+  left: 0px;
+}
+
+.rem-timeline-hide-top{
+  position: absolute;
+  background-color: colors.$white;
+  height: 20px;
+  // border:1px solid blue;
+  z-index: 55;
+  top:-2px;
+  left:0px;
 }
 
 .rem-timeline-container.show-timeline{

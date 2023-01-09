@@ -1,8 +1,12 @@
-import { useFadeElement, useListingUpdates, useToggle } from "@src/hooks";
+import {
+  DivSize,
+  useFadeElement,
+  useListingUpdates,
+  useToggle,
+} from "@src/hooks";
 import "./listingUpdates.scss";
 import { LoadingDots } from "../LoadingDots";
 import { Timeline } from "../Timeline";
-import { useReducer } from "react";
 import AnimateHeight from "react-animate-height";
 
 export function ListingUpdates() {
@@ -43,7 +47,7 @@ export function ListingUpdates() {
 
   return (
     <div className="rem-sub-container">
-      <h6 className="rem-sub-title">
+      <h6 className="rem-sub-title rem-listing-subtitle">
         Listing Timeline:{" "}
         <LoadingDots nameClass="rem-loading-timeline" removeWhen={!loading} />
         <span
@@ -65,10 +69,7 @@ export function ListingUpdates() {
           height={showTimeline ? "auto" : 0}
         >
           <div className="rem-listing-updates-timeline">
-            <Timeline
-              listingUpdates={listingUpdates}
-              showTimeline={showTimeline}
-            />
+            <Timeline listingUpdates={listingUpdates} />
           </div>
         </AnimateHeight>
       ) : (

@@ -7,10 +7,14 @@ import { NBNInfo } from "@components/NBNInfo";
 import { Logo } from "@components/Logo";
 import { HiddenPriceRange } from "@components/HiddenPriceRange";
 import { ListingUpdates } from "@components/ListingUpdates";
+import { ReactNode, useEffect, useRef } from "react";
+import { useMainContainerSize } from "@src/hooks";
 
 export function App() {
+  const { divRef } = useMainContainerSize();
+
   return (
-    <div className="rem-container">
+    <div ref={divRef} className="rem-container">
       <h3 className="rem-title">Real Estate Mate</h3>
       <Logo />
       <HiddenPriceRange />
