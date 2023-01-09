@@ -1,5 +1,6 @@
 import { ListingUpdate, ListingUpdatesResponse } from "@src/interfaces";
 import "./timeline.scss";
+import { daysAgo } from "@src/utils";
 interface TimelineProps {
   listingUpdates: ListingUpdatesResponse;
   showTimeline: boolean;
@@ -25,14 +26,26 @@ export function Timeline(props: TimelineProps) {
 interface TimelineEventProps {
   title: string;
   description: string;
+  previousDescription?: string;
 }
 
 function TimelineEvent(props: TimelineEventProps) {
-  const { title, description } = props;
+  const { title, description, previousDescription = "" } = props;
+
+  const previousDescriptionText = `(${previousDescription})`;
+  const previousDescriptionVisible = !!previousDescription
+    ? ""
+    : "hide-previous-description";
+
   return (
     <div className="rem-timeline-event-container">
       <h4 className="rem-timeline-event-title">{title}</h4>
-      <p className="rem-timeline-event-description">{description}</p>
+      <p className="rem-timeline-event-description">{description} </p>
+      <p
+        className={`rem-timeline-event-previous-description ${previousDescriptionVisible}`}
+      >
+        {previousDescriptionText}
+      </p>
     </div>
   );
 }
@@ -43,17 +56,28 @@ interface TimelineEventsGroupProps {
 
 function TimelineEventsGroup(props: TimelineEventsGroupProps) {
   const { listingUpdates } = props;
+
   return (
     <div className="rem-timeline-events-groups-container">
       {
         listingUpdates.map((listingUpdate) => {
+          const updateDaysAgo: number = daysAgo(listingUpdate.createdDate);
+          const daysAgoText =
+            updateDaysAgo === 0
+              ? "Today"
+              : updateDaysAgo === 1
+              ? "Yesterday"
+              : `${updateDaysAgo} days ago`;
           return (
             <div className="rem-timeline-events-group-date-container">
               <h6 className="rem-timeline-events-group-date-text">
                 {listingUpdate.createdDate}
               </h6>
-              <h6 className="rem-timeline-events-group-date-text">
+              {/* <h6 className="rem-timeline-events-group-date-text">
                 {listingUpdate.createdTime}
+              </h6> */}
+              <h6 className="rem-timeline-events-group-date-text">
+                {daysAgoText}
               </h6>
             </div>
           );
@@ -68,6 +92,7 @@ function TimelineEventsGroup(props: TimelineEventsGroupProps) {
             <TimelineEvent
               title={listingUpdate.updatedField}
               description={listingUpdate.updatedValue}
+              previousDescription={listingUpdate.lastValue}
             />
           );
         })}

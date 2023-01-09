@@ -11,7 +11,7 @@ export function ListingUpdates() {
     loading,
   } = useListingUpdates();
 
-  const [showTimeline, toggleShowTimeline] = useToggle({ initialValue: false });
+  const [showTimeline, toggleShowTimeline] = useToggle({ initialValue: true });
 
   let keysInListingUpdates = 0;
   if (listingUpdates) {

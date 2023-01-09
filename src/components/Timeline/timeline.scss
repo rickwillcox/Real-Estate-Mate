@@ -21,11 +21,28 @@
 
 .rem-timeline-event-title {
   font-size: 18px;
+  margin-bottom: -10px;
 }
 
 .rem-timeline-event-description {
   color: colors.$dark-grey;
   font-size: 18px;
+  margin-bottom: -10px;
+}
+
+.rem-timeline-event-previous-description{
+  color: colors.$red;
+  font-size: 14px;
+  text-decoration: line-through;
+}
+
+.rem-timeline-event-previous-description.hide-previous-description {
+  visibility: hidden;
+  height: 0;
+}
+
+.rem-timeline-event-previous-description.hide-previous-description:last-child {
+  padding-bottom: 10px;
 }
 
 //Event Group
