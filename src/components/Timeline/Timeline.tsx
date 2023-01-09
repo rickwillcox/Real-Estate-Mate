@@ -1,45 +1,42 @@
 import { ListingUpdate, ListingUpdatesResponse } from "@src/interfaces";
 import "./timeline.scss";
 import { daysAgo } from "@src/utils";
-import { useMainContainerSize } from "@src/hooks";
+import { useMainContainerSize, useResponsiveDivSize } from "@src/hooks";
 import { useEffect, useRef } from "react";
 interface TimelineProps {
   listingUpdates: ListingUpdatesResponse;
+  showTimeline: boolean;
 }
 
 export function Timeline(props: TimelineProps) {
-  const { listingUpdates } = props;
+  const { listingUpdates, showTimeline } = props;
 
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const hideTopRef = useRef<HTMLDivElement>(null);
+  // const timelineRef = useRef<HTMLDivElement>(null);
+
+  const { divRef: timelineRef, divSize: timelineDivSize } =
+    useResponsiveDivSize();
 
   const { mainContainerSize } = useMainContainerSize();
-  console.log(mainContainerSize);
+  const showTimeLineClass = showTimeline ? "show-timeline" : "";
 
   useEffect(() => {
     if (timelineRef.current) {
       timelineRef.current.style.width = `${mainContainerSize.width}px`;
     }
-    if (hideTopRef.current) {
-      hideTopRef.current.style.width = `${mainContainerSize.width}px`;
-    }
   }, [mainContainerSize]);
 
   return (
-    <div ref={timelineRef} className="rem-timeline-container">
-      <div ref={hideTopRef} className="rem-timeline-hide-top"></div>
-
-      <div>
-        {Object.keys(listingUpdates).map((key) => {
-          return (
-            <TimelineEventsGroup
-              listingUpdates={
-                listingUpdates[key as keyof ListingUpdatesResponse]
-              }
-            />
-          );
-        })}
-      </div>
+    <div
+      ref={timelineRef}
+      className={`rem-timeline-container ${showTimeLineClass}`}
+    >
+      {Object.keys(listingUpdates).map((key) => {
+        return (
+          <TimelineEventsGroup
+            listingUpdates={listingUpdates[key as keyof ListingUpdatesResponse]}
+          />
+        );
+      })}
     </div>
   );
 
