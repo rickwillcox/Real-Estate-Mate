@@ -1,6 +1,10 @@
 import { split } from "lodash";
 import moment from "moment";
 
+/**
+ * @param date format dd/mm/yy
+ * @returns {number} days since the input date1
+ */
 export function daysAgo(date: string): number {
   const currentDate = new Intl.DateTimeFormat(undefined, {
     year: "2-digit",

@@ -7,8 +7,8 @@ import { NBNInfo } from "@components/NBNInfo";
 import { Logo } from "@components/Logo";
 import { HiddenPriceRange } from "@components/HiddenPriceRange";
 import { ListingUpdates } from "@components/ListingUpdates";
-import { ReactNode, useEffect, useRef } from "react";
 import { useMainContainerSize } from "@src/hooks";
+import { auctionElement, getTitle, imageBadgeElement } from "@src/utils";
 
 export function App() {
   const { divRef } = useMainContainerSize();

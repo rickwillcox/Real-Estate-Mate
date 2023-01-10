@@ -174,15 +174,19 @@ function getLogoElement() {
   };
 }
 
-function getPriceInfoElement() {
-  let priceInfoElement: HTMLElement;
+/**
+ *
+ * @summury the title and price are the same thing. So either a price or something like FOR SALE, AUCTION
+ */
+function getTitleElement() {
+  let titleElement: HTMLElement;
   return function () {
-    if (!priceInfoElement) {
-      priceInfoElement = document.getElementsByClassName(
+    if (!titleElement) {
+      titleElement = document.getElementsByClassName(
         "property-price property-info__price"
       )[0] as HTMLElement;
     }
-    return priceInfoElement;
+    return titleElement;
   };
 }
 
@@ -234,6 +238,30 @@ function getMainContainerTitleElement() {
   };
 }
 
+function getAuctionElement() {
+  let auctionElement: HTMLElement;
+  return function () {
+    if (!auctionElement) {
+      auctionElement = document.getElementsByClassName(
+        "GavelLg__StyledSVG-sc-1n8cns6-0 gKNrIq View__FilledGavel-sc-1ai73n3-2 iPSeZN"
+      )[0] as HTMLElement;
+    }
+    return auctionElement;
+  };
+}
+
+function getImageBadgeElement() {
+  let imageBadgeElement: HTMLElement;
+  return function () {
+    if (!imageBadgeElement) {
+      imageBadgeElement = document.getElementsByClassName(
+        "styles__Content-sc-1l20hun-1 grvyUL"
+      )[0] as HTMLElement;
+    }
+    return imageBadgeElement;
+  };
+}
+
 export const internetPrimaryAccessTechnologyElement =
   getInternetPrimaryAccessTechnologyElement();
 
@@ -267,7 +295,7 @@ export const listingUpdatesElement = getListingUpdatesElement();
 
 export const logoElement = getLogoElement();
 
-export const priceInfoElement = getPriceInfoElement();
+export const titleElement = getTitleElement();
 
 export const bankLoadingElement = getBankLoadingElement();
 
@@ -276,3 +304,7 @@ export const internetLoadingElement = getInternetLoadingElement();
 export const listingUpdatesLoadingElement = getListingUpdatesLoadingElement();
 
 export const mainContainerTitleElement = getMainContainerTitleElement();
+
+export const auctionElement = getAuctionElement();
+
+export const imageBadgeElement = getImageBadgeElement();
