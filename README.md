@@ -24,6 +24,10 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 
 - Listing history (user driven)
 
+## ETA next chrome store release 
+
+31/01/2023
+
 ## Contact:
 
 Email: [realestatemate.au@gmail.com](mailto:realestatemate.au@gmail.com)
