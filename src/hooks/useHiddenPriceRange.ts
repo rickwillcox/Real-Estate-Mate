@@ -1,3 +1,4 @@
+import { priceRangeRegex } from "@src/consts/regex";
 import { useLoadedStore } from "@src/stores";
 import { useEffect, useState } from "react";
 
@@ -6,9 +7,7 @@ export function useHiddenPriceRange() {
   const { setContainerToLoaded, hiddenPriceRangeLoaded } = useLoadedStore();
 
   useEffect(() => {
-    const regex =
-      /marketing_price_range\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"(.*?)\\\\\\\\\\\\\\"/;
-    const matches = document.documentElement.innerHTML.match(regex);
+    const matches = document.documentElement.innerHTML.match(priceRangeRegex);
     if (matches === null) {
       setPriceRange(`No price range available`);
       return;

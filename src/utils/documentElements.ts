@@ -262,6 +262,18 @@ function getImageBadgeElement() {
   };
 }
 
+function getTitleInfoElement() {
+  let titleInfoElement: HTMLElement;
+  return function () {
+    if (!titleInfoElement) {
+      titleInfoElement = document.getElementsByClassName(
+        "property-price property-info__price"
+      )[0] as HTMLElement;
+    }
+    return titleInfoElement;
+  };
+}
+
 export const internetPrimaryAccessTechnologyElement =
   getInternetPrimaryAccessTechnologyElement();
 

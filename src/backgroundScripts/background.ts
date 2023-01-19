@@ -4,7 +4,12 @@ import {
   ContentToBackgroundEventMap,
   sendEventToContent,
 } from "@src/utils";
-import { commBankHelper, getListingUpdatesHelper, nbnHelper } from ".";
+import {
+  commBankHelper,
+  getListingUpdatesHelper,
+  nbnHelper,
+  updatePropertyListing,
+} from ".";
 
 export {};
 
@@ -44,9 +49,20 @@ async function processContentScriptFunctions<
       break;
     }
     case CommunicationEvent.getListingUpdates: {
+      console.log("LISTNG UPDATES START");
       const args =
         func?.args as ContentToBackgroundEventMap[CommunicationEvent.getListingUpdates];
       msg.data = await getListingUpdatesHelper(args.address);
+      console.log("!!!!", msg.data);
+      console.log("LISTNG UPDATES END");
+      break;
+    }
+    case CommunicationEvent.updatePropertyListing: {
+      const args =
+        func?.args as ContentToBackgroundEventMap[CommunicationEvent.updatePropertyListing];
+      const res = await updatePropertyListing(args);
+      //todo get real response
+      msg.data = { success: true };
       break;
     }
     default:

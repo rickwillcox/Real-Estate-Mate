@@ -1,17 +1,19 @@
 export async function getListingUpdatesHelper(address: string) {
   // add address to the body of the request
+
+  const encodedAddress = encodeURIComponent(address);
+  console.log(encodedAddress);
+
   const response = await fetch(
-    `http://localhost:3000/getRealEstateListingUpdates`,
+    `http://localhost:3000/getPropertyListingUpdates?address=${encodedAddress}`,
     {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        address: address.toString(),
-      }),
     }
   );
+  console.log("AFTER", response);
   const data = await response.json();
   return data;
 }

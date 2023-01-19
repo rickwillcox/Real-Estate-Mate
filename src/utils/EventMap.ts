@@ -1,15 +1,17 @@
 import {
   CommBankResponse,
-  ListingUpdate,
   ListingUpdatesResponse,
   NBNResponse,
   Nullable,
+  UpdatePropertyListing,
+  UpdatePropertyListingResponse,
 } from "@src/interfaces";
 
 export const enum CommunicationEvent {
   getCommBankData = "getCommBankData",
   getNBNData = "getNBNData",
   getListingUpdates = "getListingUpdates",
+  updatePropertyListing = "updatePropertyListing",
 }
 
 // content to background
@@ -17,6 +19,7 @@ export interface ContentToBackgroundEventMap {
   [CommunicationEvent.getCommBankData]: EventGetCommBankDataValues;
   [CommunicationEvent.getNBNData]: EventGetNBNDataValues;
   [CommunicationEvent.getListingUpdates]: EventGetListingUpdatesValues;
+  [CommunicationEvent.updatePropertyListing]: EventUpdatePropertyListing;
 }
 
 interface EventGetCommBankDataValues {
@@ -31,6 +34,8 @@ interface EventGetListingUpdatesValues {
   address: string;
 }
 
+interface EventUpdatePropertyListing extends UpdatePropertyListing {}
+
 export type ContentToBackgroundEventMapValues =
   ContentToBackgroundEventMap[keyof ContentToBackgroundEventMap];
 
@@ -39,6 +44,7 @@ export interface BackgroundToContentEventMap {
   [CommunicationEvent.getCommBankData]: CommBankResponse;
   [CommunicationEvent.getNBNData]: Nullable<NBNResponse>;
   [CommunicationEvent.getListingUpdates]: ListingUpdatesResponse;
+  [CommunicationEvent.updatePropertyListing]: UpdatePropertyListingResponse;
 }
 
 export type BackgroundToContentEventMapValues =

@@ -8,10 +8,12 @@ import { Logo } from "@components/Logo";
 import { HiddenPriceRange } from "@components/HiddenPriceRange";
 import { ListingUpdates } from "@components/ListingUpdates";
 import { useMainContainerSize } from "@src/hooks";
-import { auctionElement, getTitle, imageBadgeElement } from "@src/utils";
+import { useUpdatePropertyListing } from "@src/hooks/useUpdatePropertyListing";
 
 export function App() {
   const { divRef } = useMainContainerSize();
+
+  useUpdatePropertyListing();
 
   return (
     <div ref={divRef} className="rem-container">
