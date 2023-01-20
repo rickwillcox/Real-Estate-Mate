@@ -1,3 +1,4 @@
+import { endpoint } from "@src/consts/endpoint";
 import { UpdatePropertyListing } from "@src/interfaces";
 
 export async function updatePropertyListing(args: UpdatePropertyListing) {
@@ -10,7 +11,7 @@ export async function updatePropertyListing(args: UpdatePropertyListing) {
     maxPrice,
     title
   );
-  return await fetch("http://localhost:3000/updatePropertyListing", {
+  return await fetch(`${endpoint}/updatePropertyListing`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

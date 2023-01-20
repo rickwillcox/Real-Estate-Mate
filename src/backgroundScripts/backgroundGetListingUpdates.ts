@@ -1,3 +1,5 @@
+import { endpoint } from "@src/consts/endpoint";
+
 export async function getListingUpdatesHelper(address: string) {
   // add address to the body of the request
 
@@ -5,7 +7,7 @@ export async function getListingUpdatesHelper(address: string) {
   console.log(encodedAddress);
 
   const response = await fetch(
-    `http://localhost:3000/getPropertyListingUpdates?address=${encodedAddress}`,
+    `${endpoint}/getPropertyListingUpdates?address=${encodedAddress}`,
     {
       method: "GET",
       headers: {

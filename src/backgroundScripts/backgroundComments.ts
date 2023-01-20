@@ -1,5 +1,7 @@
+import { endpoint } from "@src/consts/endpoint";
+
 export function createNewComment(comment: string, address: string) {
-  fetch("http://localhost:3000/createNewComment", {
+  fetch(`${endpoint}/createNewComment`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
