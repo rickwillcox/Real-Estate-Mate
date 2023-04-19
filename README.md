@@ -24,9 +24,6 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 
 - Listing history (user driven)
 
-## ETA next chrome store release 
-
-Mid March 2023.
 
 ## Contact:
 
