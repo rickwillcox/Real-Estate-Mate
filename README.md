@@ -17,12 +17,8 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 ## Features:
 
 - Show the hidden price range of a property
-- Show Commonwealth Bank evaluation
-- Show Internet data
 
-## In Progress:
-
-- Listing history (user driven)
+![image](https://github.com/rickwillcox/Real-Estate-Mate/assets/53924507/567683be-17af-436f-8986-14940e8be6b9)
 
 ## Contact:
 
