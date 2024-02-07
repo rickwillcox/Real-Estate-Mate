@@ -1,12 +1,11 @@
 import { getChromeUrl } from "@src/utils";
 import "./logo.scss";
-import { useLoadedStore } from "@src/stores";
 
 export function Logo() {
-  const { allContainersLoaded } = useLoadedStore();
   const realEstateMateLogoPath = "src/assets/logo-128.png";
 
-  const spinLogo = allContainersLoaded ? "spin-once" : "";
+  // const spinLogo = allContainersLoaded ? "spin-once" : "";
+  const spinLogo = "spin-once";
   return (
     <img
       className={`rem-logo ${spinLogo}`}

@@ -9,10 +9,6 @@
   "icons": {
     "128": "src/assets/logo-128.png"
   },
-  "host_permissions": [
-    "https://www.domain.com.au/*",
-    "https://www.commbank.com.au/digital/home-buying/property/*"
-  ],
   "permissions": ["tabs"],
   "content_scripts": [
     {
@@ -21,9 +17,6 @@
       "media": []
     }
   ],
-  "background": {
-    "service_worker": "src/backgroundScripts/background.ts"
-  },
   "web_accessible_resources": [
     {
       "matches": ["http://*/*", "https://*/*"],

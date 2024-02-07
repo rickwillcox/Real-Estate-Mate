@@ -13,7 +13,7 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 <a href="https://www.buymeacoffee.com/rickwillcox" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 <!-- ![Google Chrome](https://img.shields.io/static/v1?style=flat&message=Real+Estate+Mate&color=4285F4&logo=Google+Chrome&logoColor=FFFFFF&label=Install) -->
- 
+
 ## Features:
 
 - Show the hidden price range of a property
@@ -24,10 +24,9 @@ Your best mate whilst looking for houses to buy on realestate.com.au
 
 - Listing history (user driven)
 
-
 ## Contact:
 
-Email: [realestatemate.au@gmail.com](mailto:realestatemate.au@gmail.com)
+Email: [rickwillcox90@gmail.com](mailto:rickwillcox90@gmail.com)
 
 ## Disclaimer:
 

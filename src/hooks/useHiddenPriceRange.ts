@@ -1,10 +1,8 @@
 import { priceRangeRegex } from "@src/consts/regex";
-import { useLoadedStore } from "@src/stores";
 import { useEffect, useState } from "react";
 
 export function useHiddenPriceRange() {
   const [priceRange, setPriceRange] = useState<string>("");
-  const { setContainerToLoaded, hiddenPriceRangeLoaded } = useLoadedStore();
 
   useEffect(() => {
     const matches = document.documentElement.innerHTML.match(priceRangeRegex);
@@ -14,10 +12,9 @@ export function useHiddenPriceRange() {
     } else {
       setPriceRange(matches[1].replace("_", " - "));
     }
-    setContainerToLoaded("hiddenPriceRangeLoaded");
   }, []);
 
-  return { data: { priceRange }, loading: !hiddenPriceRangeLoaded };
+  return { data: { priceRange }, loading: false };
 }
 
 // todo: update back end here
