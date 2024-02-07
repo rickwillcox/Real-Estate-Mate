@@ -14,7 +14,14 @@ import {
 export {};
 
 console.log("background script loaded");
-console.clear();
+// console.clear();
+
+//add a listener that detects when the url changes
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  if (changeInfo.url) {
+    console.log("URL changed to: " + changeInfo.url);
+  }
+});
 
 chrome.runtime.onMessage.addListener(function async(func, sender) {
   processContentScriptFunctions(func, sender);

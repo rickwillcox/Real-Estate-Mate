@@ -11,8 +11,6 @@ interface TimelineProps {
 export function Timeline(props: TimelineProps) {
   const { listingUpdates, showTimeline } = props;
 
-  // const timelineRef = useRef<HTMLDivElement>(null);
-
   const { divRef: timelineRef, divSize: timelineDivSize } =
     useResponsiveDivSize();
 
@@ -37,23 +35,6 @@ export function Timeline(props: TimelineProps) {
           />
         );
       })}
-    </div>
-  );
-
-  return (
-    <div>
-      <div ref={timelineRef} className="rem-timeline-container">
-        {Object.keys(listingUpdates).map((key) => {
-          return (
-            <TimelineEventsGroup
-              listingUpdates={
-                listingUpdates[key as keyof ListingUpdatesResponse]
-              }
-            />
-          );
-        })}
-      </div>
-      <div className="rem-temp"></div>
     </div>
   );
 }

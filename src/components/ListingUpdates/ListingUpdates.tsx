@@ -8,7 +8,6 @@ import {
 import "./listingUpdates.scss";
 import { LoadingDots } from "../LoadingDots";
 import { Timeline } from "../Timeline";
-import AnimateHeight from "react-animate-height";
 import { useEffect, useRef } from "react";
 
 export function ListingUpdates() {
@@ -16,6 +15,9 @@ export function ListingUpdates() {
     data: { listingUpdates },
     loading,
   } = useListingUpdates();
+
+  console.log("?????");
+  console.log("!!!!!!", listingUpdates);
 
   const [showTimeline, toggleShowTimeline] = useToggle({ initialValue: false });
 
@@ -65,11 +67,7 @@ export function ListingUpdates() {
       )[0] as HTMLDivElement;
 
       if (element) {
-        // console.log(element);
-        const x = window.getComputedStyle(element);
-        console.log(x.maxHeight);
-        const maxHeight = x.maxHeight;
-        // remove the px
+        const maxHeight = window.getComputedStyle(element).maxHeight;
         const numberMaxHeight = Number(
           maxHeight.substring(0, maxHeight.length - 2)
         );
@@ -94,7 +92,7 @@ export function ListingUpdates() {
         <span
           className={`rem-sub-title-value-text ${NATextClassName} ${fadeInNAText}`}
         >
-          N/A
+          No Updates
         </span>
         <button
           className={`rem-sub-title-value-text rem-link ${fadeInShowHidebutton}`}
@@ -108,11 +106,6 @@ export function ListingUpdates() {
         </button>
       </h6>
       {!loading && keysInListingUpdates && listingUpdates ? (
-        // <AnimateHeight
-        //   id="rem-timeline-animate-height"
-        //   duration={500}
-        //   height={showTimeline ? "auto" : 0}
-        // >
         <div className="rem-listing-updates-timeline">
           <Timeline
             listingUpdates={listingUpdates}
@@ -121,7 +114,6 @@ export function ListingUpdates() {
           <div ref={hideTopRef} className="rem-timeline-hide-top"></div>
         </div>
       ) : (
-        // </AnimateHeight>
         <div />
       )}
     </div>

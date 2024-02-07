@@ -14,14 +14,15 @@ export function App() {
   const { divRef } = useMainContainerSize();
 
   useUpdatePropertyListing();
+  console.log("REAL ESTATE MATE APP.TSX");
 
   return (
     <div ref={divRef} className="rem-container">
       <h3 className="rem-title">Real Estate Mate</h3>
       <Logo />
       <HiddenPriceRange />
-      <BankEstimate />
-      <NBNInfo />
+      {/* <BankEstimate />
+      <NBNInfo /> */}
       <ListingUpdates />
     </div>
   );

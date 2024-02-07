@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "React TypeScript Chrome Extension Template",
-  "version": "1.0.0",
+  "name": "Real Estate Mate",
+  "version": "0.6",
   "action": {
     "default_title": "Popup",
     "default_popup": "index.html"
@@ -13,6 +13,7 @@
     "https://www.domain.com.au/*",
     "https://www.commbank.com.au/digital/home-buying/property/*"
   ],
+  "permissions": ["tabs"],
   "content_scripts": [
     {
       "matches": ["https://www.realestate.com.au/property*"],
@@ -21,8 +22,7 @@
     }
   ],
   "background": {
-    "service_worker": "src/backgroundScripts/background.ts",
-    "type": "module"
+    "service_worker": "src/backgroundScripts/background.ts"
   },
   "web_accessible_resources": [
     {

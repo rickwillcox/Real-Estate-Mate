@@ -1,4 +1,3 @@
-import { split } from "lodash";
 import moment from "moment";
 
 /**
